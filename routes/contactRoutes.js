@@ -3,14 +3,11 @@ const router=express.Router();
 const {getcontacts,createContact,getContact,UpdateContact,DeleteContact}=require("../controllers/contactController");
 
 
-router.route("/").get(getcontacts);
-
-router.route("/").post(createContact);
-
-router.route("/:id").get(getContact);
-
-router.route("/:id").put(UpdateContact);
+router.route("/").get(getcontacts).post(createContact);
 
 
-router.route("/:id").delete(DeleteContact);
+
+router.route("/:id").get(getContact).put(UpdateContact).delete(DeleteContact);
+
+
 module.exports=router;

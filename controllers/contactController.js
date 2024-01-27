@@ -1,19 +1,19 @@
 
-
+const asyncHandler = require("express-async-handler");
 
 //@decs all contact
 //route GET /api/contacts
 //access Public
 
-const getcontacts = (req,res)=>{
+const getcontacts = asyncHandler(async(req,res)=>{
     res.status(200).json({message:"Get all  contacts"});
-}
+});
 
 //@decs create new contact
 //route POST /api/contacts
 //access Public
 
-const createContact =(req,res)=>{
+const createContact =asyncHandler(async(req,res)=>{
     console.log("The request body is ",req.body);
     const {name,email,phone,type}=req.body;
     if(!name || !email || !phone){
@@ -21,32 +21,32 @@ const createContact =(req,res)=>{
         throw new Error("All fields are mendatory !");
     }
     res.status(201).json({message:"create a new contact"});
-}
+})
 
 
 //@decs Get new contact
 //route GET /api/contacts/:id
 //access Public
 
-const getContact =(req,res)=>{
+const getContact =asyncHandler(async(req,res)=>{
     res.status(200).json({message:`Get contact for ${req.params.id}`});
-}
+})
 
 //@decs Update new contact
 //route PUT /api/contacts/:id
 //access Public
 
-const UpdateContact =(req,res)=>{
+const UpdateContact =asyncHandler(async(req,res)=>{
     res.status(200).json({message:`Update contact for ${req.params.id}`});
-}
+})
 
 //@decs DELETE contact
 //route DELETE /api/contacts/:id
 //access Public
 
-const DeleteContact =(req,res)=>{
+const DeleteContact =asyncHandler(async(req,res)=>{
     res.status(200).json({message:`Delete contact for ${req.params.id}`});
-}
+})
 
 
 
