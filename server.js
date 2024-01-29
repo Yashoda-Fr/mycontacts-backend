@@ -10,6 +10,8 @@ const port=process.env.PORT || 3000;
 
 app.use(express.json());// to read the json message come with the request
 app.use("/api/contacts",require("./routes/contactRoutes"));
+app.use("/api/users",require("./routes/userRoutes"));
+
 app.use(errorHandler);
 
 app.listen(port,()=>{
