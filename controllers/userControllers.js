@@ -60,7 +60,7 @@ const user = await User.findOne({email});
                email: user.email,
                id: user._id,
            },
-       },process.env.ACCESS_TOKEN_SECRET,{expiresIn:"1m"});
+       },process.env.ACCESS_TOKEN_SECRET,{expiresIn:"5m"});
         res.status(200).json({accesstoken})
 
     }
@@ -76,7 +76,9 @@ const user = await User.findOne({email});
 //access private
 
 const currentUser = asyncHandler(async (req,res)=>{
-    res.json({message:"current user information"});
+
+    //res.json({message:"current user information"});
+    res.json({req.user});
 });
 
 module.exports={registerUser,loginUser,currentUser};
