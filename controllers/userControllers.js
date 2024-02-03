@@ -78,7 +78,7 @@ const user = await User.findOne({email});
 const currentUser = asyncHandler(async (req,res)=>{
 
     //res.json({message:"current user information"});
-    res.json({req.user});
+    res.json(req.user);
 });
 
 module.exports={registerUser,loginUser,currentUser};
